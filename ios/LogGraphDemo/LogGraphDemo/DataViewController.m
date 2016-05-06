@@ -7,7 +7,7 @@
 //
 
 #import "DataViewController.h"
-
+#import "LGGLogProfile.h"
 @interface DataViewController ()
 
 @end
@@ -16,6 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[LGGLogProfile shared] pinPoint:@"haha"];
+    [[LGGLogProfile shared] pinPoint:@"haha"];
+    sleep(2);
+    NSLog(@"[LGGLogProfile shared]");
     // Do any additional setup after loading the view, typically from a nib.
 }
 
