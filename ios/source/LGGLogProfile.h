@@ -7,12 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef enum {
-    eLGGTUnitNano = 1,
-    eLGGTUnitMicr = 1000,
-    eLGGTUnitMill = 1000000,
-    eLGGTUnitSeco = 1000000000,
-} eLGGTimeUnit;
 
 typedef enum {
     eLGGPointIsComplete = 1 << 0,
@@ -40,6 +34,8 @@ typedef enum {
 }
 @property (nonatomic, assign) unsigned long long referencePoint;
 @property (nonatomic, strong) NSMutableOrderedSet *graph;
+@property (nonatomic, strong) NSURL *serverURL;
+@property (nonatomic, assign) NSInteger timeIntervalToUploadLog;
 + (instancetype)shared;
 ///  add one point to graph, which set current time as startTime
 ///
@@ -47,4 +43,6 @@ typedef enum {
 ///
 ///  @return one point which should call close/cutoff to set endTime;
 - (LGGLogPoint *)pinPoint:(NSString *)name;
+- (void)startUpload;
+- (void)stopUpload;
 @end

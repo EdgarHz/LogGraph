@@ -16,10 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[LGGLogProfile shared] startUpload];
     [[LGGLogProfile shared] pinPoint:@"haha"];
     [[LGGLogProfile shared] pinPoint:@"haha"];
     sleep(2);
     NSLog(@"[LGGLogProfile shared]");
+    [[LGGLogProfile shared] setServerURL:[NSURL URLWithString:@""]];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

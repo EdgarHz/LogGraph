@@ -4,7 +4,7 @@
 # use_frameworks!
 
 target 'LogGraphDemo' do
-	pod 'OCUtilCollection', :git => "https://github.com/EdgarHz/OCUTLCollection.git", :tag => "0.0.1"
+	pod 'OCUtilCollection', :git => "https://github.com/EdgarHz/OCUTLCollection.git"
 	pod 'JSONModel', '~> 1.2.0'
 end
 

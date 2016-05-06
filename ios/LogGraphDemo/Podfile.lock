@@ -45,30 +45,29 @@ PODS:
   - libextobjc/UmbrellaHeader (0.4.1)
   - NBULog (1.2.4):
     - CocoaLumberjack (>= 2.0.0)
-  - OCUtilCollection (0.0.1):
+  - OCUtilCollection (0.0.2):
     - CocoaLumberjack
     - libextobjc (~> 0.4.1)
     - NBULog (~> 1.2.4)
 
 DEPENDENCIES:
   - JSONModel (~> 1.2.0)
-  - OCUtilCollection (from `https://github.com/EdgarHz/OCUTLCollection.git`, tag `0.0.1`)
+  - OCUtilCollection (from `https://github.com/EdgarHz/OCUTLCollection.git`)
 
 EXTERNAL SOURCES:
   OCUtilCollection:
     :git: https://github.com/EdgarHz/OCUTLCollection.git
-    :tag: 0.0.1
 
 CHECKOUT OPTIONS:
   OCUtilCollection:
+    :commit: 7ce58f774f6a4db82d58ece43cfa7dbf61eeaaab
     :git: https://github.com/EdgarHz/OCUTLCollection.git
-    :tag: 0.0.1
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   NBULog: 4003be6706b97a7e376ab4171c666ac7c2fbc2b2
-  OCUtilCollection: d00686c204f1cb65316d64a7693cfd9404e3654b
+  OCUtilCollection: aa93d11b386b654cfa9884767746e83a3f8330ba
 
 COCOAPODS: 0.39.0
