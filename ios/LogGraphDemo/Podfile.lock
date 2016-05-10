@@ -60,7 +60,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   OCUtilCollection:
-    :commit: 7ce58f774f6a4db82d58ece43cfa7dbf61eeaaab
+    :commit: 5f9740006c2787de33958abeb23edc8cce0dfe3a
     :git: https://github.com/EdgarHz/OCUTLCollection.git
 
 SPEC CHECKSUMS:

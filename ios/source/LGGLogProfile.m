@@ -12,7 +12,7 @@
 
 
 static mach_timebase_info_data_t info;
-#define SecondsBetween(Time, Reference) (double)(((Time - Reference) * info.numer / info.denom) / NSEC_PER_SEC)
+#define SecondsBetween(Time, Reference) ((double)((Time - Reference) * info.numer / info.denom) / NSEC_PER_SEC)
 
 @implementation LGGLogPoint
 + (instancetype)pointWithName:(NSString *)name {
@@ -58,7 +58,7 @@ SharedInstanceImplementation(shared, LGGLogProfile);
     @weakify(self);
     dispatch_async(_queue, ^{
       @strongify(self);
-      DDLogVerbose(@"%@ %llu", name, p.startTime);
+      DDLogVerbose(@"point:%@ seconds:%f", name, SecondsBetween(p.startTime, self.referencePoint));
       [self.graph addObject:p];
     });
     return p;
@@ -82,13 +82,41 @@ SharedInstanceImplementation(shared, LGGLogProfile);
     }
 }
 - (void)upload {
-    return;
-    [UTLSimpleHttpClient requestDataFromURL:self.serverURL
-        method:kUTLHTTPMethodPOST
-        params:@{}
-        headers:nil
-        handler:^(id data, NSError *error){
+    if (!self.serverURL) {
+        return;
+    }
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.graph.count];
+    [self.graph enumerateObjectsUsingBlock:^(LGGLogPoint *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
+      if (obj.status) {
+          [array addObject:obj];
+      }
+    }];
+    if (!array.count) {
+        return;
+    }
+    [self.graph removeObjectsInArray:array];
 
-        }];
+    NSMutableArray *points = [NSMutableArray array];
+    [array enumerateObjectsUsingBlock:^(LGGLogPoint *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
+      [points addObject:@{
+          @"name" : obj.name,
+          @"startTime" : @((double)SecondsBetween(obj.startTime, self.referencePoint)),
+          @"endTime" : @((double)SecondsBetween(obj.endTime, self.referencePoint)),
+      }];
+    }];
+    NSError *err;
+    id data = [NSJSONSerialization dataWithJSONObject:@{
+        @"points" : points
+    }
+                                              options:NSJSONWritingPrettyPrinted
+                                                error:&err];
+
+    [UTLSimpleHttpClient requestDataFromURL:self.serverURL
+                                     method:kUTLHTTPMethodPOST
+                                requestBody:data
+                                    headers:nil
+                                    handler:^(id data, NSError *error){
+
+                                    }];
 }
 @end

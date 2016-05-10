@@ -13,5 +13,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *dataLabel;
 @property (strong, nonatomic) id dataObject;
 
-@end
 
+@property (strong, nonatomic) IBOutlet UILabel *logTipLabel;
+@property (strong, nonatomic) IBOutlet UISwitch *logSwitcher;
+@property (strong, nonatomic) IBOutlet UITextField *eventTextField;
+@property (strong, nonatomic) IBOutlet UITextField *durationTextField;
+@property (strong, nonatomic) IBOutlet UITextField *repeatTextField;
+@property (strong, nonatomic) IBOutlet UITextField *intervalTextField;
+@property (strong, nonatomic) IBOutlet UIButton *okButton;
+@end
