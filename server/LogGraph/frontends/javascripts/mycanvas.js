@@ -4,7 +4,7 @@
 var $=require('jquery');
 require('chart.js');
 
-var ctx = $("#myChart");
+var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -18,7 +18,7 @@ var myChart = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero: true
                 }
             }]
         }
