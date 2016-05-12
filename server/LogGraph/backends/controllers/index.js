@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var logDatabase = require('../db/logDatabase');
+var logDatabase = require('../services/logDatabase');
 // var points = logDatabase.Points();
 
 /* GET home page. */

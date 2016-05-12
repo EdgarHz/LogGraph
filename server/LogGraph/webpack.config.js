@@ -3,10 +3,10 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, 'app.js'),
+        other: path.resolve(__dirname, './frontends/javascripts/mycanvas.js')
     },
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, './frontends/static/javascripts'),
         filename: '[name].js'
     },
     module: {
