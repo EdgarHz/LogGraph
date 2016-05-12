@@ -1,8 +1,31 @@
 extends layout
+
 block append head
+    script(src="common.js")
 
 block content
   h1= "hi hi2"
   canvas#myChart(width=400, height=400)
-  script(src="javascripts/other.js")
+
+  script.
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3]
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
 

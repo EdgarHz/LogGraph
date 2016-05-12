@@ -1,14 +1,18 @@
 var webpack = require('webpack');
 var path = require('path');
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 
 module.exports = {
     entry: {
-        other: path.resolve(__dirname, './frontends/javascripts/mycanvas.js')
+        t1: path.resolve(__dirname, './frontends/javascripts/test.js'),
     },
     output: {
         path: path.resolve(__dirname, './frontends/static/javascripts'),
         filename: '[name].js'
     },
+    plugins: [
+        commonsPlugin
+    ],
     module: {
         loaders: [
             { test: /\.jade$/, loader: "jade" },
