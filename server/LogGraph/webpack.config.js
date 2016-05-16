@@ -4,10 +4,10 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 
 module.exports = {
     entry: {
-        t1: path.resolve(__dirname, './frontends/javascripts/test.js'),
+        entry: path.resolve(__dirname, './frontend/javascripts/entry.js'),
     },
     output: {
-        path: path.resolve(__dirname, './frontends/static/javascripts'),
+        path: path.resolve(__dirname, './frontend/static/javascripts'),
         filename: '[name].js'
     },
     plugins: [

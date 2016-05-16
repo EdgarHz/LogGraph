@@ -1,0 +1,16 @@
+extends layout
+
+block append head
+    script(src="javascripts/common.js")
+    script(src="javascripts/chartData.js")
+    //script.
+    //  window.onload = function () {
+    //    var hello = document.getElementById("hello");
+    //    alert("323");
+    //  };
+
+block content
+  h1#hello= "Hello, showing graph of " + tag
+  canvas#myChart(width=400, height=400)
+
+

@@ -106,7 +106,8 @@ SharedInstanceImplementation(shared, LGGLogProfile);
     }];
     NSError *err;
     id data = [NSJSONSerialization dataWithJSONObject:@{
-        @"points" : points
+        @"points" : points,
+        @"tagName" : @"a"
     }
                                               options:NSJSONWritingPrettyPrinted
                                                 error:&err];
