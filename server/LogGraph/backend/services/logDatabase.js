@@ -47,8 +47,12 @@ LogGraph.find = function (tagName, callback) {
             findPoints(tagName, callback);
         } else {
             db.collections(function (collections) {
-                tagName = collections[collections.length - 1].name;
-                findPoints(tagName, callback);
+                if (collections != null) {
+                    tagName = collections[collections.length - 1].name;
+                    findPoints(tagName, callback);
+                } else {
+                    callback(null);
+                }
             });
         }
 

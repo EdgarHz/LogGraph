@@ -4,14 +4,19 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 
 module.exports = {
     entry: {
-        entry: path.resolve(__dirname, './frontend/javascripts/entry.js'),
+        chartData: path.resolve(__dirname, './frontend/javascripts/chartData.js'),
     },
     output: {
         path: path.resolve(__dirname, './frontend/static/javascripts'),
         filename: '[name].js'
     },
     plugins: [
-        commonsPlugin
+        commonsPlugin,
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        })
     ],
     module: {
         loaders: [

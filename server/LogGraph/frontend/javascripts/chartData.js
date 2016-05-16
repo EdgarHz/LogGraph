@@ -1,9 +1,7 @@
 /**
  * Created by hzy on 5/13/16.
  */
-require("../static/javascripts/entry.js")
-
-// var startTime = 0;
+require("chart.js");
 
 function refreshData() {
     var pointList = $.ajax({url:"/find", async:false});
@@ -31,9 +29,7 @@ function refreshData() {
     setTimeout(refreshData,1000);
 }
 
-window.onload =function () {
-    var hello = document.getElementById("hello");
-    alert($);
-    alert($(document));
-
-};
+$(document).ready( function () {
+    alert("webpack is ok");
+    refreshData();
+});

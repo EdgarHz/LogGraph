@@ -2,4 +2,4 @@
 Pods/
 xcuserdata/
 node_modules/
-server/LogGraph/frontends/static
+server/LogGraph/frontend/static
